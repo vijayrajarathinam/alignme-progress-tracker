@@ -6,7 +6,8 @@ import {
   ProgressImage, 
   UserProfile, 
   Notification,
-  AppSettings
+  AppSettings,
+  AlignerStatus
 } from "@/types";
 import { addDays, format } from "date-fns";
 import { toast } from "sonner";
@@ -130,6 +131,8 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({
 
     // Generate some example notifications
     if (notifications.length === 0) {
+      const tomorrow = addDays(new Date(), 1);
+      
       setNotifications([
         {
           id: "notif-1",
