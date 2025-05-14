@@ -64,11 +64,14 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				},
 				alignme: {
-					primary: '#33B9C6',
-					secondary: '#45C4B0',
+					primary: '#9b87f5', // Updated to Material Design 3 purple
+					secondary: '#7E69AB', // Secondary purple
+					tertiary: '#6E59A5', // Tertiary purple
 					accent: '#F9F9F9',
 					lightGray: '#E8E8E8',
-					darkGray: '#666666'
+					darkGray: '#666666',
+					surface: '#FFFFFF',
+					error: '#B00020',
 				}
 			},
 			borderRadius: {
@@ -107,6 +110,13 @@ export default {
 				'accordion-up': 'accordion-up 0.2s ease-out',
 				'fade-in': 'fade-in 0.3s ease-out',
 				'slide-in-right': 'slide-in-right 0.3s ease-out'
+			},
+			boxShadow: {
+				'md-1': '0 1px 2px rgba(0,0,0,0.2)',
+				'md-2': '0 2px 4px rgba(0,0,0,0.2)',
+				'md-3': '0 4px 8px rgba(0,0,0,0.2)',
+				'md-4': '0 8px 16px rgba(0,0,0,0.2)',
+				'md-5': '0 16px 32px rgba(0,0,0,0.2)',
 			}
 		}
 	},

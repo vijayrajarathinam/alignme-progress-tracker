@@ -48,34 +48,32 @@ const Onboarding = () => {
   };
   
   const handleComplete = () => {
-    // In a real app, you might set a flag in localStorage to not show onboarding again
     localStorage.setItem("onboarding_completed", "true");
     navigate("/");
   };
 
   return (
-    <div className="flex flex-col h-screen bg-white">
+    <div className="flex flex-col h-screen bg-background">
       <div className="flex justify-end p-4">
         <Button 
           variant="ghost" 
-          className="text-alignme-darkGray flex items-center gap-1" 
+          className="text-muted-foreground flex items-center gap-1 font-medium" 
           onClick={handleComplete}
         >
           Skip <SkipForward size={16} />
         </Button>
       </div>
       
-      <Carousel className="w-full flex-1 flex flex-col" 
-        value={{ activeSlideIndex: currentStep }} 
-        onValueChange={(value) => setCurrentStep(value.activeSlideIndex)}
+      <Carousel className="w-full flex-1 flex flex-col"
+        // Remove the value and onValueChange props, as they don't exist in the component props
       >
         <CarouselContent className="flex-1 h-full">
           {onboardingSteps.map((step, index) => (
-            <CarouselItem key={index} className="h-full">
+            <CarouselItem key={index} className={`h-full ${index === currentStep ? 'block' : 'hidden'}`}>
               <div className="flex flex-col h-full justify-between p-6">
                 <div className="mb-6 flex-1 flex flex-col items-center justify-center">
-                  <div className="w-full max-w-sm mb-8">
-                    <AspectRatio ratio={16 / 9} className="bg-muted rounded-xl overflow-hidden">
+                  <div className="w-full max-w-sm mb-8 material-elevation-2 rounded-2xl overflow-hidden">
+                    <AspectRatio ratio={16 / 9} className="overflow-hidden">
                       <img
                         src={step.image}
                         alt={step.title}
@@ -84,8 +82,8 @@ const Onboarding = () => {
                     </AspectRatio>
                   </div>
                   
-                  <h2 className="text-2xl font-bold text-center mb-2 text-gradient">{step.title}</h2>
-                  <p className="text-center text-alignme-darkGray">{step.description}</p>
+                  <h2 className="text-2xl font-bold text-center mb-2 text-alignme-primary">{step.title}</h2>
+                  <p className="text-center text-muted-foreground">{step.description}</p>
                 </div>
                 
                 <div className="flex flex-col items-center gap-6 mt-4">
@@ -103,7 +101,7 @@ const Onboarding = () => {
                   </div>
                   
                   <Button 
-                    className="w-full max-w-xs"
+                    className="w-full max-w-xs rounded-full bg-alignme-primary hover:bg-alignme-secondary text-white shadow-md-1"
                     onClick={handleNext}
                   >
                     {currentStep < onboardingSteps.length - 1 ? (
