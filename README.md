@@ -1,73 +1,177 @@
-# Welcome to your Lovable project
+Here’s a **detailed requirement document** for the **AlignMe** app — a minimalistic dental aligner appointment and tracking tool.
 
-## Project info
+---
 
-**URL**: https://lovable.dev/projects/a76475b3-60d9-4ee2-9208-e3785e2b85d3
+# 📄 **AlignMe App - Requirement Specification Document**
 
-## How can I edit this code?
+---
 
-There are several ways of editing your application.
+## **1. Overview**
 
-**Use Lovable**
+**Purpose:**
+AlignMe is a mobile-first application designed for patients undergoing clear aligner treatment. The app simplifies booking dental appointments, tracking aligner usage, viewing the treatment timeline, and capturing visual progress through selfies.
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/a76475b3-60d9-4ee2-9208-e3785e2b85d3) and start prompting.
+**Target Users:**
 
-Changes made via Lovable will be committed automatically to this repo.
+* Patients undergoing orthodontic treatment with aligners
+* Orthodontic clinics (optional admin portal integration later)
 
-**Use your preferred IDE**
+---
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+## **2. Functional Requirements**
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+### **2.1 User Authentication (Optional MVP)**
 
-Follow these steps:
+* [ ] User signup/login via email or phone number (MVP can skip this)
+* [ ] Profile with basic details: name, age, treatment start date, aligner count
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+---
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+### **2.2 Appointment Booking**
 
-# Step 3: Install the necessary dependencies.
-npm i
+* [x] View available time slots for clinic/dentist
+* [x] Book appointment with:
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+  * Date
+  * Time
+  * Optional notes
+* [x] Reschedule or cancel existing appointments
+* [ ] Notifications:
 
-**Edit a file directly in GitHub**
+  * Confirmation
+  * 24h/1h reminders
+  * Reschedule alerts
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+---
 
-**Use GitHub Codespaces**
+### **2.3 Aligner Schedule Tracker**
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+* [x] Define treatment duration (e.g., 20 aligners, 1 per 10 days)
+* [x] Auto-generate schedule with:
 
-## What technologies are used for this project?
+  * Start date
+  * Aligner # (e.g., Aligner 3/20)
+  * Expected switch date
+* [x] Show **past**, **current**, and **upcoming** aligners
+* [x] Mark aligner as "in use", "completed", or "skipped"
+* [ ] Dentist can optionally adjust schedule (future feature)
 
-This project is built with:
+---
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+### **2.4 Timeline View**
 
-## How can I deploy this project?
+* [x] Chronological list of:
 
-Simply open [Lovable](https://lovable.dev/projects/a76475b3-60d9-4ee2-9208-e3785e2b85d3) and click on Share -> Publish.
+  * Aligner # and date started
+  * Notes or tags (e.g., discomfort, tight fit)
+  * Icons for status: completed, in-progress, missed
+* [x] Option to add manual entry for missed/makeup aligners
 
-## Can I connect a custom domain to my Lovable project?
+---
 
-Yes, you can!
+### **2.5 Progress Tracking with Selfies**
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+* [x] Weekly or custom-interval selfie reminders
+* [x] Take photo in-app or upload from gallery
+* [x] Store selfie with date and aligner #
+* [ ] Compare mode:
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+  * Before/after slider
+  * Grid view by week/month
+* [ ] Auto-align face using face detection
+* [ ] Share/export progress (optional)
+
+---
+
+### **2.6 Notifications & Reminders**
+
+* [x] Daily reminder to wear aligners (optional toggle)
+* [x] Reminder to switch aligners
+* [x] Appointment reminders
+* [ ] Weekly selfie prompt
+
+---
+
+### **2.7 Settings & Preferences**
+
+* [x] Edit profile: Name, email, treatment start date
+* [x] Set aligner switch frequency (e.g., every 10 days)
+* [x] Enable/disable reminders
+
+---
+
+## **3. Non-Functional Requirements**
+
+### **3.1 Performance**
+
+* Smooth timeline scrolling
+* Load images efficiently (lazy loading for selfies)
+
+### **3.2 Security**
+
+* Secure local storage for selfie data
+* Cloud sync option (future roadmap)
+
+### **3.3 Scalability**
+
+* Ready to support integration with clinic dashboards or APIs
+
+### **3.4 Platform**
+
+* MVP: Mobile Web App / PWA or React Native
+* Future: Native iOS and Android
+
+---
+
+## **4. Technical Stack Recommendation (MVP)**
+
+| Layer         | Tech                                  |
+| ------------- | ------------------------------------- |
+| Frontend      | React Native / Expo                   |
+| Backend       | Firebase (Firestore + Auth + Storage) |
+| Notifications | Firebase Cloud Messaging              |
+| Media         | React Native Camera / Expo Camera     |
+| Design        | Figma + Tailwind-like design system   |
+
+---
+
+## **5. UI Components (Screens)**
+
+1. **Home Dashboard**
+
+   * Next appointment
+   * Current aligner
+   * Action buttons: Book, Timeline, Progress
+
+2. **Book Appointment**
+
+   * Calendar with available slots
+   * Time picker
+   * Confirm screen
+
+3. **Timeline**
+
+   * Scrollable view of aligners
+   * Mark complete / add notes
+
+4. **Progress**
+
+   * Selfie list
+   * Compare mode
+   * Upload new photo
+
+5. **Settings**
+
+   * Profile
+   * Notification preferences
+   * Edit schedule
+
+---
+
+## **6. Future Enhancements**
+
+* Clinic-side dashboard for monitoring patients
+* Aligner fit tracking (AI-based from photos)
+* Chat with dentist
+* Integration with Apple Health / Google Fit
+
