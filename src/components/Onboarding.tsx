@@ -55,6 +55,7 @@ const Onboarding = () => {
   const handleComplete = () => {
     localStorage.setItem("onboarding_completed", "true");
     navigate("/", { replace: true });
+    window.location.reload();
   };
 
   return (
