@@ -1,10 +1,5 @@
-Here’s a **detailed requirement document** for the **AlignMe** app — a minimalistic dental aligner appointment and tracking tool.
-
----
-
 # 📄 **AlignMe App - Requirement Specification Document**
 
----
 
 ## **1. Overview**
 
@@ -16,7 +11,6 @@ AlignMe is a mobile-first application designed for patients undergoing clear ali
 * Patients undergoing orthodontic treatment with aligners
 * Orthodontic clinics (optional admin portal integration later)
 
----
 
 ## **2. Functional Requirements**
 
@@ -24,8 +18,6 @@ AlignMe is a mobile-first application designed for patients undergoing clear ali
 
 * [ ] User signup/login via email or phone number (MVP can skip this)
 * [ ] Profile with basic details: name, age, treatment start date, aligner count
-
----
 
 ### **2.2 Appointment Booking**
 
@@ -42,7 +34,6 @@ AlignMe is a mobile-first application designed for patients undergoing clear ali
   * 24h/1h reminders
   * Reschedule alerts
 
----
 
 ### **2.3 Aligner Schedule Tracker**
 
@@ -56,7 +47,6 @@ AlignMe is a mobile-first application designed for patients undergoing clear ali
 * [x] Mark aligner as "in use", "completed", or "skipped"
 * [ ] Dentist can optionally adjust schedule (future feature)
 
----
 
 ### **2.4 Timeline View**
 
@@ -67,7 +57,6 @@ AlignMe is a mobile-first application designed for patients undergoing clear ali
   * Icons for status: completed, in-progress, missed
 * [x] Option to add manual entry for missed/makeup aligners
 
----
 
 ### **2.5 Progress Tracking with Selfies**
 
@@ -81,7 +70,6 @@ AlignMe is a mobile-first application designed for patients undergoing clear ali
 * [ ] Auto-align face using face detection
 * [ ] Share/export progress (optional)
 
----
 
 ### **2.6 Notifications & Reminders**
 
@@ -90,7 +78,6 @@ AlignMe is a mobile-first application designed for patients undergoing clear ali
 * [x] Appointment reminders
 * [ ] Weekly selfie prompt
 
----
 
 ### **2.7 Settings & Preferences**
 
@@ -98,7 +85,6 @@ AlignMe is a mobile-first application designed for patients undergoing clear ali
 * [x] Set aligner switch frequency (e.g., every 10 days)
 * [x] Enable/disable reminders
 
----
 
 ## **3. Non-Functional Requirements**
 
@@ -121,8 +107,6 @@ AlignMe is a mobile-first application designed for patients undergoing clear ali
 * MVP: Mobile Web App / PWA or React Native
 * Future: Native iOS and Android
 
----
-
 ## **4. Technical Stack Recommendation (MVP)**
 
 | Layer         | Tech                                  |
@@ -133,7 +117,6 @@ AlignMe is a mobile-first application designed for patients undergoing clear ali
 | Media         | React Native Camera / Expo Camera     |
 | Design        | Figma + Tailwind-like design system   |
 
----
 
 ## **5. UI Components (Screens)**
 
@@ -165,8 +148,6 @@ AlignMe is a mobile-first application designed for patients undergoing clear ali
    * Profile
    * Notification preferences
    * Edit schedule
-
----
 
 ## **6. Future Enhancements**
 
