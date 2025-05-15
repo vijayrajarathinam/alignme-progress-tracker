@@ -29,16 +29,16 @@ const AppointmentsPage: React.FC = () => {
       
       <div className="p-4 animate-fade-in">
         <div className="flex justify-between items-center mb-4">
-          <h2 className="text-lg font-semibold">Your Appointments</h2>
-          <Button onClick={() => navigate('/appointments/book')}>
+          <h2 className="text-lg font-semibold text-gradient">Your Appointments</h2>
+          <Button onClick={() => navigate('/appointments/book')} className="rounded-full shadow-sm">
             <Plus size={16} className="mr-1" /> Book
           </Button>
         </div>
         
         <Tabs defaultValue="upcoming" className="w-full" onValueChange={setActiveTab}>
-          <TabsList className="grid w-full grid-cols-2">
-            <TabsTrigger value="upcoming">Upcoming</TabsTrigger>
-            <TabsTrigger value="past">Past</TabsTrigger>
+          <TabsList className="grid w-full grid-cols-2 rounded-xl mb-4">
+            <TabsTrigger value="upcoming" className="rounded-lg">Upcoming</TabsTrigger>
+            <TabsTrigger value="past" className="rounded-lg">Past</TabsTrigger>
           </TabsList>
           <TabsContent value="upcoming" className="mt-4 space-y-4">
             {upcomingAppointments.length > 0 ? (
@@ -46,9 +46,9 @@ const AppointmentsPage: React.FC = () => {
                 <AppointmentCard key={appointment.id} appointment={appointment} />
               ))
             ) : (
-              <div className="text-center py-8">
+              <div className="text-center py-8 bg-muted rounded-xl">
                 <p className="text-alignme-darkGray mb-4">No upcoming appointments</p>
-                <Button onClick={() => navigate('/appointments/book')}>
+                <Button onClick={() => navigate('/appointments/book')} className="rounded-full shadow-sm">
                   <Plus size={16} className="mr-1" /> Book Appointment
                 </Button>
               </div>
@@ -60,7 +60,7 @@ const AppointmentsPage: React.FC = () => {
                 <AppointmentCard key={appointment.id} appointment={appointment} />
               ))
             ) : (
-              <div className="text-center py-8">
+              <div className="text-center py-8 bg-muted rounded-xl">
                 <p className="text-alignme-darkGray">No past appointments</p>
               </div>
             )}

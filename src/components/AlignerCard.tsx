@@ -36,35 +36,35 @@ const AlignerCard: React.FC<AlignerCardProps> = ({ aligner, onUpdate }) => {
   
   return (
     <div className={cn(
-      "aligner-card flex flex-col",
+      "material-elevation-2 rounded-xl p-4 transition-all hover:material-elevation-3",
       status === 'in-use' ? "border-l-4 border-l-alignme-primary" : ""
     )}>
       <div className="flex justify-between items-center mb-2">
         <h3 className="text-lg font-medium">Aligner #{number}</h3>
-        <Badge className={statusColors[status]}>
+        <Badge className={cn(statusColors[status], "rounded-full px-3")}>
           <span className="flex items-center gap-1">
             {statusIcons[status]} {status === 'in-use' ? 'Current' : status.charAt(0).toUpperCase() + status.slice(1)}
           </span>
         </Badge>
       </div>
       
-      <div className="text-sm text-alignme-darkGray mb-2">
+      <div className="text-sm text-alignme-darkGray mb-2 bg-muted/50 p-2 rounded-lg">
         <div>Start: {format(startDate, 'MMM d, yyyy')}</div>
         <div>End: {format(endDate, 'MMM d, yyyy')}</div>
       </div>
       
-      {notes && <p className="text-sm italic mt-1">{notes}</p>}
+      {notes && <p className="text-sm italic mt-1 text-alignme-darkGray">{notes}</p>}
       
       {onUpdate && status !== 'completed' && status !== 'skipped' && (
         <div className="flex gap-2 mt-3">
           <button 
-            className="text-sm px-3 py-1 bg-green-100 text-green-700 rounded-full hover:bg-green-200 transition-colors flex items-center gap-1"
+            className="text-sm px-4 py-2 bg-green-100 text-green-700 rounded-full hover:bg-green-200 transition-colors flex items-center gap-1 shadow-sm"
             onClick={() => handleStatusChange('completed')}
           >
             <Check size={14} /> Mark Complete
           </button>
           <button 
-            className="text-sm px-3 py-1 bg-red-100 text-red-700 rounded-full hover:bg-red-200 transition-colors flex items-center gap-1"
+            className="text-sm px-4 py-2 bg-red-100 text-red-700 rounded-full hover:bg-red-200 transition-colors flex items-center gap-1 shadow-sm"
             onClick={() => handleStatusChange('skipped')}
           >
             <X size={14} /> Skip

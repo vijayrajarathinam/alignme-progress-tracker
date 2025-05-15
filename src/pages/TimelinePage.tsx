@@ -18,13 +18,13 @@ const TimelinePage: React.FC = () => {
       <HeaderBar title="Timeline" />
       
       <div className="p-4 animate-fade-in">
-        <h2 className="text-lg font-semibold mb-4">Your Aligner Timeline</h2>
+        <h2 className="text-lg font-semibold mb-4 text-gradient">Your Aligner Timeline</h2>
         
         <Tabs defaultValue="current" className="w-full" onValueChange={setActiveTab}>
-          <TabsList className="grid w-full grid-cols-3">
-            <TabsTrigger value="current">Current</TabsTrigger>
-            <TabsTrigger value="upcoming">Upcoming</TabsTrigger>
-            <TabsTrigger value="completed">Completed</TabsTrigger>
+          <TabsList className="grid w-full grid-cols-3 rounded-xl mb-4">
+            <TabsTrigger value="current" className="rounded-lg">Current</TabsTrigger>
+            <TabsTrigger value="upcoming" className="rounded-lg">Upcoming</TabsTrigger>
+            <TabsTrigger value="completed" className="rounded-lg">Completed</TabsTrigger>
           </TabsList>
           
           <TabsContent value="current" className="mt-4 space-y-4">
@@ -37,7 +37,7 @@ const TimelinePage: React.FC = () => {
                 />
               ))
             ) : (
-              <div className="text-center py-8">
+              <div className="text-center py-8 bg-muted rounded-xl">
                 <p className="text-alignme-darkGray">No current aligners</p>
               </div>
             )}
@@ -53,7 +53,7 @@ const TimelinePage: React.FC = () => {
                 />
               ))
             ) : (
-              <div className="text-center py-8">
+              <div className="text-center py-8 bg-muted rounded-xl">
                 <p className="text-alignme-darkGray">No upcoming aligners</p>
               </div>
             )}
@@ -68,7 +68,7 @@ const TimelinePage: React.FC = () => {
                 />
               ))
             ) : (
-              <div className="text-center py-8">
+              <div className="text-center py-8 bg-muted rounded-xl">
                 <p className="text-alignme-darkGray">No completed aligners</p>
               </div>
             )}

@@ -1,4 +1,3 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -105,15 +104,15 @@
   }
 
   .material-elevation-1 {
-    @apply shadow-md-1 bg-card;
+    @apply shadow-md-1 bg-card rounded-xl border border-alignme-lightGray/30;
   }
   
   .material-elevation-2 {
-    @apply shadow-md-2 bg-card;
+    @apply shadow-md-2 bg-card rounded-xl border border-alignme-lightGray/30;
   }
   
   .material-elevation-3 {
-    @apply shadow-md-3 bg-card;
+    @apply shadow-md-3 bg-card rounded-xl border border-alignme-lightGray/30;
   }
   
   .material-surface {
